@@ -52,6 +52,7 @@ const DocumentIcon = () => (
     />
   </svg>
 );
+
 const TICKET_ICONS = {
   OPEN: <DocumentIcon />,
   IN_PROGRESS: <PencilIcon />,
