@@ -7,3 +7,4 @@ Live Server deployed on vercel: [https://the-road-to-next-sasa.vercel.app/](http
 - NextJS 15
 - React 19
 - TailwindCSS
+- Shadcn/ui components
