@@ -19,7 +19,8 @@ const nextConfig: NextConfig = {
     return [
       {
         // Apply headers to all routes
-        source: "/:path*",
+        // source: "/:path*",
+        source: "/(.*)",
         headers: [
           {
             key: "Content-Security-Policy",
