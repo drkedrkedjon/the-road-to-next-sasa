@@ -1,9 +1,9 @@
 import { TicketItem } from "@/features/ticket/components/ticket-item";
-import { GetTickets } from "@/features/ticket/queries/get-tickets";
+import { getTickets } from "@/features/ticket/queries/get-tickets";
 import { Ticket } from "@/features/ticket/types";
 
 const TicketList = async () => {
-  const tickets = await GetTickets();
+  const tickets = await getTickets();
 
   return (
     <div className="flex flex-1 flex-col items-center gap-y-4 animate-fade-in-from-top">
