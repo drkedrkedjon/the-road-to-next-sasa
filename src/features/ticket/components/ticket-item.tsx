@@ -25,7 +25,6 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) => {
       </Link>
     </Button>
   );
-
   return (
     <div
       className={clsx("w-full flex gap-x-1", {
