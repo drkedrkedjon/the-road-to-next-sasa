@@ -1,11 +1,10 @@
+import { Suspense } from "react";
+
 import { Heading } from "@/components/heading";
-import { TicketItem } from "@/features/ticket/components/ticket-item";
-import { GetTickets } from "@/features/ticket/queries/get-tickets";
-import { Ticket } from "@/features/ticket/types";
+import { Spinner } from "@/components/spinner";
+import { TicketList } from "@/features/ticket/components/ticket-list";
 
-const TicketsPage = async () => {
-  const tickets = await GetTickets();
-
+const TicketsPage = () => {
   return (
     <div className="flex-1 flex flex-col gap-y-8">
       <Heading
@@ -13,14 +12,9 @@ const TicketsPage = async () => {
         description="All your tickets at one place"
       />
 
-      <div className="flex flex-1 flex-col items-center gap-y-4 animate-fade-in-from-top">
-        {tickets.map((ticket: Ticket) => (
-          <TicketItem
-            key={ticket.id}
-            ticket={ticket}
-          />
-        ))}
-      </div>
+      <Suspense fallback={<Spinner />}>
+        <TicketList />
+      </Suspense>
     </div>
   );
 };
