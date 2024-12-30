@@ -5,17 +5,17 @@ const prisma = new PrismaClient();
 const tickets = [
   {
     title: "Ticket 1",
-    content: "This is the first ticket from Supabase",
+    content: "This is the first ticket from Supabase new",
     status: "DONE" as const,
   },
   {
     title: "Ticket 2",
-    content: "This is the second ticket from Supabase",
+    content: "This is the second ticket from Supabase new",
     status: "OPEN" as const,
   },
   {
     title: "Ticket 3",
-    content: "This is the third ticket from Supabase",
+    content: "This is the third ticket from Supabase new",
     status: "IN_PROGRESS" as const,
   },
 ];
