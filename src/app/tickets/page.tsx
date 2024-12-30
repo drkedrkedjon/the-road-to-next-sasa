@@ -11,7 +11,6 @@ const TicketsPage = () => {
         title="Tickets"
         description="All your tickets at one place"
       />
-
       <Suspense fallback={<Spinner />}>
         <TicketList />
       </Suspense>
