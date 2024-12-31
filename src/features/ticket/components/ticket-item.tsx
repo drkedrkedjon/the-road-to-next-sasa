@@ -22,7 +22,10 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) => {
       asChild
       size="icon"
     >
-      <Link href={ticketPath(ticket.id)}>
+      <Link
+        prefetch
+        href={ticketPath(ticket.id)}
+      >
         <LucideSquareArrowOutUpRight />
       </Link>
     </Button>
