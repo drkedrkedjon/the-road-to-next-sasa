@@ -3,9 +3,10 @@ import { Suspense } from "react";
 import { CardCompact } from "@/components/card-compact";
 import { Heading } from "@/components/heading";
 import { Spinner } from "@/components/spinner";
-import { TicketCreateForm } from "@/features/ticket/components/ticket-create-form";
 import { TicketList } from "@/features/ticket/components/ticket-list";
+import { TicketUpsertForm } from "@/features/ticket/components/ticket-upsert-form";
 
+// NEXT cache options
 // export const dynamic = "force-dynamic";
 // export const revalidate = 30;
 
@@ -20,7 +21,7 @@ const TicketsPage = async () => {
       <CardCompact
         title="Create Ticket"
         description="A new ticket will be created"
-        content={<TicketCreateForm />}
+        content={<TicketUpsertForm />}
         className="w-full max-w-[420px] self-center"
       />
 
