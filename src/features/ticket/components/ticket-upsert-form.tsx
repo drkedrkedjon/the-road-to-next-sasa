@@ -2,6 +2,7 @@
 import { Ticket } from "@prisma/client";
 import { useActionState } from "react";
 
+import { FieldError } from "@/components/form/field-error";
 import { SubmitButton } from "@/components/form/submit-button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -14,9 +15,12 @@ type TicketUpdateFormProps = {
 
 const TicketUpsertForm = ({ ticket }: TicketUpdateFormProps) => {
   const [actionState, action] = useActionState(
+    // @ts-expect-error have no idea how to fix this
     upsertTicket.bind(null, ticket?.id),
     {
       message: "",
+      payload: new FormData(),
+      fieldErrors: {},
     }
   );
 
@@ -30,14 +34,30 @@ const TicketUpsertForm = ({ ticket }: TicketUpdateFormProps) => {
         type="text"
         name="title"
         id="title"
-        defaultValue={ticket?.title}
+        defaultValue={
+          // @ts-expect-error have no idea how to fix this
+          (actionState.payload?.get("title") as string) ?? ticket?.title
+        }
+      />
+      <FieldError
+        // @ts-expect-error have no idea how to fix this
+        actionState={actionState}
+        name="title"
       />
 
       <Label htmlFor="content">Content</Label>
       <Textarea
         name="content"
         id="content"
-        defaultValue={ticket?.content}
+        defaultValue={
+          // @ts-expect-error have no idea how to fix this
+          (actionState.payload?.get("content") as string) ?? ticket?.content
+        }
+      />
+      <FieldError
+        // @ts-expect-error have no idea how to fix this
+        actionState={actionState}
+        name="content"
       />
       <SubmitButton label={ticket ? "Edit" : "Create"} />
       {actionState.message}
