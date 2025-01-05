@@ -7,6 +7,7 @@ import { z } from "zod";
 import {
   ActionState,
   fromErrorToActionState,
+  toActionState,
 } from "@/components/form/utils/to-action-state";
 import { prisma } from "@/lib/prisma";
 import { ticketPath, ticketsPath } from "@/paths";
@@ -18,7 +19,7 @@ const upsertTicketSchema = z.object({
 
 export const upsertTicket = async (
   id: string | undefined,
-  _acctionState: ActionState,
+  _actionState: ActionState,
   formData: FormData
 ) => {
   try {
@@ -44,5 +45,5 @@ export const upsertTicket = async (
     return redirect(ticketPath(id));
   }
 
-  return { message: "Ticket Created", fieldErrors: { title: "", content: "" } };
+  return toActionState("SUCCESS", "Ticket created");
 };

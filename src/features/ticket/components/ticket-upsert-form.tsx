@@ -4,6 +4,7 @@ import { useActionState } from "react";
 
 import { FieldError } from "@/components/form/field-error";
 import { SubmitButton } from "@/components/form/submit-button";
+import { EMPTY_ACTION_STATE } from "@/components/form/utils/to-action-state";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -15,13 +16,8 @@ type TicketUpdateFormProps = {
 
 const TicketUpsertForm = ({ ticket }: TicketUpdateFormProps) => {
   const [actionState, action] = useActionState(
-    // @ts-expect-error have no idea how to fix this
     upsertTicket.bind(null, ticket?.id),
-    {
-      message: "",
-      payload: new FormData(),
-      fieldErrors: {},
-    }
+    EMPTY_ACTION_STATE
   );
 
   return (
@@ -35,12 +31,10 @@ const TicketUpsertForm = ({ ticket }: TicketUpdateFormProps) => {
         name="title"
         id="title"
         defaultValue={
-          // @ts-expect-error have no idea how to fix this
           (actionState.payload?.get("title") as string) ?? ticket?.title
         }
       />
       <FieldError
-        // @ts-expect-error have no idea how to fix this
         actionState={actionState}
         name="title"
       />
@@ -50,12 +44,10 @@ const TicketUpsertForm = ({ ticket }: TicketUpdateFormProps) => {
         name="content"
         id="content"
         defaultValue={
-          // @ts-expect-error have no idea how to fix this
           (actionState.payload?.get("content") as string) ?? ticket?.content
         }
       />
       <FieldError
-        // @ts-expect-error have no idea how to fix this
         actionState={actionState}
         name="content"
       />
