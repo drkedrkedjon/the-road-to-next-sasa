@@ -2,6 +2,7 @@
 import { Ticket } from "@prisma/client";
 import { useActionState } from "react";
 
+import { DatePicker } from "@/components/date-picker";
 import { FieldError } from "@/components/form/field-error";
 import { Form } from "@/components/form/form";
 import { SubmitButton } from "@/components/form/submit-button";
@@ -10,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { upsertTicket } from "@/features/ticket/actions/upsert-ticket";
+import { fromCent } from "@/utils/currency";
 
 type TicketUpdateFormProps = {
   ticket?: Ticket;
@@ -55,29 +57,41 @@ const TicketUpsertForm = ({ ticket }: TicketUpdateFormProps) => {
 
       <div className="flex gap-x-2 mb-1">
         <div className="w-1/2">
-          <Label htmlFor="title">Deadline</Label>
-          <Input
+          <Label htmlFor="deadline">Deadline</Label>
+          {/* <Input
             type="date"
             name="deadline"
             id="deadline"
             defaultValue={
-              (actionState.payload?.get("deadline") as string) ?? ticket?.title
+              (actionState.payload?.get("deadline") as string) ??
+              ticket?.deadline
+            }
+          /> */}
+
+          <DatePicker
+            id="deadline"
+            name="deadline"
+            defaultValue={
+              (actionState.payload?.get("deadline") as string) ??
+              ticket?.deadline
             }
           />
+
           <FieldError
             actionState={actionState}
             name="deadline"
           />
         </div>
         <div className="w-1/2">
-          <Label htmlFor="title">Bounty ($)</Label>
+          <Label htmlFor="bounty">Bounty ($)</Label>
           <Input
             type="number"
             name="bounty"
             id="bounty"
-            step="0.01"
+            step=".01"
             defaultValue={
-              (actionState.payload?.get("bounty") as string) ?? ticket?.title
+              (actionState.payload?.get("bounty") as string) ??
+              (ticket?.bounty ? fromCent(ticket?.bounty) : "")
             }
           />
           <FieldError
