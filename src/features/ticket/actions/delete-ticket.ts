@@ -13,7 +13,7 @@ export const deleteTicket = async (id: string) => {
     },
   });
 
-  // Revalidate the tickets path when a ticket is deleted
+  // Revalidate the tickets path when a ticket is deleted para cargar la lista de tickets actualizada
   revalidatePath(ticketsPath());
   await setCookieByKey("toast", "Ticket deleted");
   redirect(ticketsPath());

@@ -16,7 +16,7 @@ const HomePage = () => {
           href={ticketsPath()}
           className="underline"
         >
-          Go to tickets
+          Go to tickets page
         </Link>
       </div>
     </div>
