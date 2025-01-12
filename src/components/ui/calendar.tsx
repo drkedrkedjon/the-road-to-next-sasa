@@ -1,13 +1,13 @@
-"use client";
+"use client"
 
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import * as React from "react";
-import { DayPicker } from "react-day-picker";
+import { ChevronLeft, ChevronRight } from "lucide-react"
+import * as React from "react"
+import { DayPicker } from "react-day-picker"
 
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 
-export type CalendarProps = React.ComponentProps<typeof DayPicker>;
+export type CalendarProps = React.ComponentProps<typeof DayPicker>
 
 function Calendar({
   className,
@@ -54,25 +54,17 @@ function Calendar({
         ...classNames,
       }}
       components={{
-        // @ts-expect-error IconLeft and IconRight are not in the types
         IconLeft: ({ className, ...props }) => (
-          <ChevronLeft
-            className={cn("h-4 w-4", className)}
-            {...props}
-          />
+          <ChevronLeft className={cn("h-4 w-4", className)} {...props} />
         ),
-        // @ts-expect-error IconLeft and IconRight are not in the types
         IconRight: ({ className, ...props }) => (
-          <ChevronRight
-            className={cn("h-4 w-4", className)}
-            {...props}
-          />
+          <ChevronRight className={cn("h-4 w-4", className)} {...props} />
         ),
       }}
       {...props}
     />
-  );
+  )
 }
-Calendar.displayName = "Calendar";
+Calendar.displayName = "Calendar"
 
-export { Calendar };
+export { Calendar }
