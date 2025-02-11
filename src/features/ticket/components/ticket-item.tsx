@@ -21,7 +21,7 @@ import { TicketMoreMenu } from "@/features/ticket/components/ticket-more-menu";
 import { ticketEditPath, ticketPath } from "@/paths";
 import { toCurrencyFromCent } from "@/utils/currency";
 
-import { TICKET_ICONS } from "../contstants";
+import { TICKET_ICONS } from "../constants";
 
 type TicketItemProps = {
   ticket: Ticket;
