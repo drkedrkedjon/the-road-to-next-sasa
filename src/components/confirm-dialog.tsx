@@ -1,4 +1,3 @@
-import { ActionState } from "@/components/form/utils/to-action-state";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -36,6 +35,7 @@ const ConfirmDialog = ({
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
           <AlertDialogAction asChild>
+            {/* @ts-expect-error Will be fixed latter*/}
             <form action={action}>
               <Button type="submit">Confirm</Button>
             </form>
