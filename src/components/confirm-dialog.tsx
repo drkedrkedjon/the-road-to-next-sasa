@@ -13,7 +13,6 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { Button } from "@/components/ui/button";
 
 type UseConfirmDialogProps = {
   title?: string;
@@ -34,8 +33,12 @@ const useConfirmDialog = ({
     /* @ts-expect-error Will be fixed latter */
     onClick: () => setIsOpen((state) => !state),
   });
-
+  /* @ts-expect-error Will be fixed latter */
   const [actionState, formAction] = useActionState(action, EMPTY_ACTION_STATE);
+
+  const handleSuccess = () => {
+    setIsOpen(false);
+  };
 
   const dialog = (
     <AlertDialog
@@ -52,7 +55,9 @@ const useConfirmDialog = ({
           <AlertDialogAction asChild>
             <Form
               action={formAction}
+              // @ts-expect-error Will be fixed latter
               actionState={actionState}
+              onSuccess={handleSuccess}
             >
               <SubmitButton label="confirm" />
             </Form>
