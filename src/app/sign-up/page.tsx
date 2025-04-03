@@ -8,7 +8,7 @@ const SignUpPage = () => {
   return (
     <div className="flex-1 flex flex-col justify-center items-center">
       <CardCompact
-        title="SIgn Up"
+        title="Sign Up"
         description="Create an account to get started"
         className="w-full max-w-[420px] animate-fade-in-from-top"
         content={<SignUpForm />}
