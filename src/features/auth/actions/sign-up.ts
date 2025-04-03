@@ -5,6 +5,7 @@ import { z } from "zod";
 import {
   ActionState,
   fromErrorToActionState,
+  toActionState,
 } from "@/components/form/utils/to-action-state";
 
 const signUpSchema = z
@@ -43,4 +44,5 @@ export const signUp = async (
   } catch (error) {
     return fromErrorToActionState(error, formData);
   }
+  return toActionState("SUCCESS", "Sign up successful");
 };
