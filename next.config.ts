@@ -12,7 +12,6 @@ const cspHeader = `
     frame-ancestors 'none';
     `;
 // upgrade-insecure-requests;
-
 const nextConfig: NextConfig = {
   /* config options here */
 
