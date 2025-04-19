@@ -9,6 +9,7 @@ import { signInPath } from "@/paths";
 
 export const signOut = async () => {
   const { session } = await getAuth();
+
   if (!session) {
     redirect(signInPath());
   }
