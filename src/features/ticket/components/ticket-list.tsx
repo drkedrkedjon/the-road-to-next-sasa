@@ -11,6 +11,7 @@ const TicketList = async () => {
       {tickets.map((ticket: Ticket) => (
         <TicketItem
           key={ticket.id}
+          // @ts-expect-error ni idea
           ticket={ticket}
         />
       ))}
